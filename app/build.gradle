@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.hw.cy.app"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+    maven { url "https://jitpack.io" }
+    mavenCentral()
+    maven { url 'https://maven.google.com' }
+    maven { url  "http://dl.bintray.com/nuptboyzhb/maven" }
+    maven { url "https://raw.githubusercontent.com/Pgyer/mvn_repo_pgyer/master" }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.android.support:multidex:1.0.2'
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    //ButerKnife注解框架
+    compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+    //为recyclerview引入vlayout
+    compile('com.alibaba.android:vlayout:1.2.2@aar') {
+        transitive = true
+    }
+    //圆形头像
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    //rxbus事件订阅
+    compile 'com.hwangjr.rxbus:rxbus:2.0.0'
+    //rxJava实现的动态权限申请
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    //滑动返回
+    compile(name: 'swipebacklayout', ext: 'aar')
+    //smart_refresh
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'
+    //Banner控件
+    compile 'com.youth.banner:banner:1.4.10'
+    //跑马灯效果的控件
+    compile 'com.gongwen:marqueelibrary:1.1.3'
+    //引入框架
+    implementation project(':framelibrary')
+}

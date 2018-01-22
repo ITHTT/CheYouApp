@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--首页菜单项View-->
+    <declare-styleable name="MainTabView">
+        <attr name="tab_name" format="string"/>
+        <attr name="tab_icon" format="reference"/>
+    </declare-styleable>
+
+    <!--自定义设置大小比例的ImageView-->
+    <declare-styleable name="ResizeImageView">
+        <attr name="resize_width" format="integer"/>
+        <attr name="resize_height" format="integer"/>
+    </declare-styleable>
+</resources>
