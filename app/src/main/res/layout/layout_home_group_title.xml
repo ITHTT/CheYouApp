@@ -13,7 +13,7 @@
         android:paddingBottom="16dp">
         <View
             android:id="@+id/view_tag"
-            android:layout_width="6dp"
+            android:layout_width="4dp"
             android:layout_height="20dp"
             android:background="@color/colorAppTheme"/>
         <TextView
@@ -36,12 +36,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:textColor="@color/colorGray"
                 android:text="查看全部"/>
             <ImageView
-                android:layout_width="9dp"
-                android:layout_height="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:src="@mipmap/ic_arrow_next"/>
         </LinearLayout>

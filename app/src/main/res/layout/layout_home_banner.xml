@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="13sp"
                 android:textColor="@color/colorBlackText"
                 android:text="车有"/>
             <TextView
@@ -30,11 +30,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/ic_red_bg"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:textSize="16sp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:textSize="13sp"
                 android:textColor="@color/colorWhite"
                 android:text="头条"/>
         </LinearLayout>

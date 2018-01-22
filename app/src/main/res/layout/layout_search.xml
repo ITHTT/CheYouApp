@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:background="@drawable/ic_search_bg"
+    android:gravity="center_vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@mipmap/ic_search"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:textSize="13sp"
+        android:textColor="@color/colorGray"
+        android:hint="请输入你要搜索的内容"/>
+</LinearLayout>

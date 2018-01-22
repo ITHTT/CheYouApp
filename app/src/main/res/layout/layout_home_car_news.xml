@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
+    <View style="@style/HorizontalLineStyle"/>
+    <TextView
+        android:id="@+id/tv_car_news_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textColor="#333333"
+        android:layout_marginTop="12dp"
+        tools:text="更高级的大玩具 全新Jeep牧马人新车解析"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_car_news_img"
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_height="45dp"/>
+    <TextView
+        android:id="@+id/tv_car_news_img_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textColor="#999999"
+        android:layout_marginTop="12dp"
+        tools:text="01/13"/>
+
+</LinearLayout>
