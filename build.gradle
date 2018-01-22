@@ -1,0 +1,47 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://maven.google.com' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext{
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.2'
+    targetSdkVersion = 27
+    minSdkVersion = 15
+    supportLibraryVersion = '27.0.2'
+    //rxjava版本
+    rxjavaVersion='2.1.8'
+    rxandroidVersion='2.0.1'
+    //Retrofit版本
+    retrofitVersion='2.3.0'
+    //okhttp版本
+    okhttpVersion='3.9.1'
+    //Glide版本
+    glideVersion='4.5.0'
+    //butterknife版本
+    butterknifeVersion='8.8.1'
+}
