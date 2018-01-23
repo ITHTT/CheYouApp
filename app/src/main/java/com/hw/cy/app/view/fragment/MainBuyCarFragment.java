@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.htt.framelibrary.log.KLog;
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseFragment;
 import com.hw.cy.app.util.StatusBarUtil;
@@ -50,6 +51,9 @@ public class MainBuyCarFragment extends BaseFragment{
     }
 
     private void initView(){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+            StatusBarUtil.statusBarLightMode(this.getActivity(), true);
+        }
         titleBar.setTitleName("购车");
         titleBar.hideBack();
 
@@ -75,5 +79,16 @@ public class MainBuyCarFragment extends BaseFragment{
         dataList.add("轮胎配件");
         dataList.add("清洗美容");
         brandAdapter.setDataList(dataList);
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        KLog.i("hidden:"+hidden);
+        if(!hidden){
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+                StatusBarUtil.statusBarLightMode(this.getActivity(), true);
+            }
+        }
     }
 }

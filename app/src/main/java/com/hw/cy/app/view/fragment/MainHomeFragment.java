@@ -45,6 +45,8 @@ public class MainHomeFragment extends BaseFragment{
     @BindView(R.id.iv_address)
     ImageView ivAddress;
 
+    private int scrollY=0;
+
 
     private DelegateAdapter adapter;
     private List<DelegateAdapter.Adapter> adapterList=null;
@@ -90,7 +92,6 @@ public class MainHomeFragment extends BaseFragment{
         refreshRecyclerView.setAdapter(adapter);
 
         refreshRecyclerView.getRecyclerView().addOnScrollListener(new RecyclerView.OnScrollListener() {
-            private int scrollY=0;
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -110,8 +111,14 @@ public class MainHomeFragment extends BaseFragment{
                     KLog.i("alpha:"+alpha);
                     if(alpha>255f){
                         alpha=255f;
+                        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+                            StatusBarUtil.statusBarLightMode(getActivity(),true);
+                        }
                     }else if(alpha<=0f){
                         ivAddress.clearColorFilter();
+                        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+                            StatusBarUtil.statusBarLightMode(getActivity(),false);
+                        }
                     }
                     layoutTitleBar.setBackgroundColor(Color.argb((int) alpha, 255, 255, 255));
                     titleBarLine.setBackgroundColor(Color.argb((int)alpha,242,242,242));
@@ -180,4 +187,21 @@ public class MainHomeFragment extends BaseFragment{
         int blue = (int) ((Color.blue(colorFrom) - Color.blue(colorTo)) * delta / posTo) + Color.blue(colorTo);
         return Color.argb(255, red, green, blue);
     }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        KLog.i("hidden:"+hidden);
+        if(!hidden){
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+                int barHeight = layoutTitleBar.getHeight();
+                if (scrollY >= barHeight) {
+                    StatusBarUtil.statusBarLightMode(this.getActivity(), true);
+                } else {
+                    StatusBarUtil.statusBarLightMode(this.getActivity(), false);
+                }
+            }
+        }
+    }
+
 }

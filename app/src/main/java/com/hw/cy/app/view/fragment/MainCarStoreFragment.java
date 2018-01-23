@@ -1,15 +1,18 @@
 package com.hw.cy.app.view.fragment;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
+import com.htt.framelibrary.log.KLog;
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseFragment;
 import com.hw.cy.app.util.DensityUtil;
+import com.hw.cy.app.util.StatusBarUtil;
 import com.hw.cy.app.view.adapter.MainCarNewsAdapter;
 import com.hw.cy.app.view.adapter.MainCarStoreAdapter;
 import com.hw.cy.app.view.widget.RecycleViewDivider;
@@ -36,6 +39,9 @@ public class MainCarStoreFragment extends BaseFragment{
     public void initViewData(Intent intent, Bundle saved) {
         titleBar.setTitleName("门店");
         titleBar.hideBack();
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+            StatusBarUtil.statusBarLightMode(getActivity(),true);
+        }
         initRefreshRecyclrView();
 
     }
@@ -67,5 +73,16 @@ public class MainCarStoreFragment extends BaseFragment{
         adapter=new MainCarStoreAdapter(getActivity());
         delegateAdapter.addAdapter(adapter);
 
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        KLog.i("hidden:"+hidden);
+        if(!hidden){
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+                StatusBarUtil.statusBarLightMode(getActivity(),true);
+            }
+        }
     }
 }

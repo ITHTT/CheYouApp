@@ -53,11 +53,7 @@ public class MainActivity extends BaseActivity{
 
     @Override
     public void initViewData(Intent intent, Bundle saved) {
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
-            StatusBarUtil.statusBarLightMode(this);
-        }
         tabHome.performClick();
-
     }
 
     @Override
@@ -173,6 +169,7 @@ public class MainActivity extends BaseActivity{
                 toFragment=mineFragment;
                 break;
         }
+
         setSelectedMenuTab(id);
         switchTabPager(index,toFragment);
     }

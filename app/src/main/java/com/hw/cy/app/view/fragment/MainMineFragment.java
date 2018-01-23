@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import com.htt.framelibrary.log.KLog;
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseFragment;
 import com.hw.cy.app.util.StatusBarUtil;
@@ -42,7 +43,19 @@ public class MainMineFragment extends BaseFragment{
 
     private void initView(){
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+            StatusBarUtil.statusBarLightMode(this.getActivity(),false);
             layoutUserProfile.setPadding(0,StatusBarUtil.getStatusBarHeight(getActivity()),0,0);
+        }
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        KLog.i("hidden:"+hidden);
+        if(!hidden){
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+                StatusBarUtil.statusBarLightMode(this.getActivity(), false);
+            }
         }
     }
 }

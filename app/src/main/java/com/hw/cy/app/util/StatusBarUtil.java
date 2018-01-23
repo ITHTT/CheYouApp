@@ -99,12 +99,12 @@ public class StatusBarUtil {
      * @param activity
      * @return 1:MIUUI 2:Flyme 3:android6.0
      */
-    public static int statusBarLightMode(Activity activity){
+    public static int statusBarLightMode(Activity activity,boolean isDark){
         int result=0;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            if(MIUISetStatusBarLightMode(activity, true)){
+            if(MIUISetStatusBarLightMode(activity, isDark)){
                 result=1;
-            }else if(FlymeSetStatusBarLightMode(activity.getWindow(), true)){
+            }else if(FlymeSetStatusBarLightMode(activity.getWindow(), isDark)){
                 result=2;
             }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 activity.getWindow().getDecorView().setSystemUiVisibility( View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
