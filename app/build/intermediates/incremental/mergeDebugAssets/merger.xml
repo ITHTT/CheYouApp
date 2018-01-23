@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config=":framelibrary"><source path="/Users/mac/Desktop/Android_project/CheYouApp/framelibrary/build/intermediates/bundles/debug/assets"/></dataSet><dataSet config="main"><source path="/Users/mac/Desktop/Android_project/CheYouApp/app/src/main/assets"/><source path="/Users/mac/Desktop/Android_project/CheYouApp/app/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/mac/Desktop/Android_project/CheYouApp/app/src/debug/assets"/></dataSet></merger>

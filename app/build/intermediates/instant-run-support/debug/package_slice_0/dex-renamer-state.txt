@@ -1,0 +1,4 @@
+#Tue Jan 23 20:55:15 CST 2018
+base.0=/Users/mac/Desktop/Android_project/CheYouApp/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
