@@ -1,7 +1,9 @@
 package com.hw.cy.app.view.widget;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +26,16 @@ public class TitleBar extends Toolbar {
 
     public TitleBar(Context context) {
         super(context);
+        addContentView(context);
+    }
+
+    public TitleBar(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        addContentView(context);
+    }
+
+    public TitleBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         addContentView(context);
     }
 

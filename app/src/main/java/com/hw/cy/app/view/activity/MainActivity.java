@@ -1,6 +1,7 @@
 package com.hw.cy.app.view.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -9,6 +10,7 @@ import android.view.View;
 import com.htt.framelibrary.log.KLog;
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseActivity;
+import com.hw.cy.app.util.StatusBarUtil;
 import com.hw.cy.app.view.fragment.MainBuyCarFragment;
 import com.hw.cy.app.view.fragment.MainCarNewsFragment;
 import com.hw.cy.app.view.fragment.MainCarStoreFragment;
@@ -51,6 +53,9 @@ public class MainActivity extends BaseActivity{
 
     @Override
     public void initViewData(Intent intent, Bundle saved) {
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+            StatusBarUtil.statusBarLightMode(this);
+        }
         tabHome.performClick();
 
     }

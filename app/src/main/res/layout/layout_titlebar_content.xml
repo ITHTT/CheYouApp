@@ -56,8 +56,6 @@
                 android:textSize="14sp"
                 tools:text="菜单"/>
         </LinearLayout>
-
-
     </RelativeLayout>
-
+    <View style="@style/HorizontalLineStyle"/>
 </LinearLayout>

@@ -5,7 +5,7 @@
     android:id="@+id/toolbar"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:background="?attr/colorPrimary"
+    android:background="@color/colorWhite"
     android:gravity="center"
     app:contentInsetLeft="0dp"
     app:contentInsetStart="0dp"/>

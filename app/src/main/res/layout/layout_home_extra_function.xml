@@ -16,7 +16,8 @@
             <ImageView
                 android:id="@+id/iv_home_01"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:src="@mipmap/adv01"/>
         </FrameLayout>
         <View
             android:layout_width="0.5dp"
@@ -34,7 +35,8 @@
                 <ImageView
                     android:id="@+id/iv_home_02"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/adv02"/>
             </FrameLayout>
             <View style="@style/HorizontalLineStyle"/>
             <LinearLayout
@@ -48,7 +50,8 @@
                     <ImageView
                         android:id="@+id/iv_home_03"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/adv03"/>
                 </FrameLayout>
                 <View
                     android:layout_width="0.5dp"
@@ -61,7 +64,8 @@
                     <ImageView
                         android:id="@+id/iv_home_04"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/adv04"/>
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>

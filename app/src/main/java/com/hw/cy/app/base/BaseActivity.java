@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.blankj.utilcode.util.BarUtils;
 import com.htt.framelibrary.mvp.IPresenter;
 import com.htt.framelibrary.mvp.IView;
 import com.hw.cy.app.R;
@@ -79,6 +80,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
                 }
             });
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                BarUtils.setStatusBarAlpha(this,0);
                 titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(this));
             }
         }

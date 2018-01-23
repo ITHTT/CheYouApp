@@ -42,7 +42,7 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment implem
     }
 
     protected void initTitleBar(View view){
-        titleBar= (TitleBar) view.findViewById(R.id.toolbar);
+        titleBar= view.findViewById(R.id.toolbar);
         if(titleBar!=null){
             if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
                 titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(getActivity()));

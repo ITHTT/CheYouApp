@@ -1,14 +1,24 @@
 package com.hw.cy.app.view.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
+import com.blankj.utilcode.util.BarUtils;
+import com.htt.framelibrary.log.KLog;
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseFragment;
+import com.hw.cy.app.util.StatusBarUtil;
 import com.hw.cy.app.view.adapter.MainHomeAdapter;
 import com.hw.cy.app.view.widget.RefreshRecyclerView;
 
@@ -24,6 +34,17 @@ import butterknife.BindView;
 public class MainHomeFragment extends BaseFragment{
     @BindView(R.id.refresh_recyclerview)
     RefreshRecyclerView refreshRecyclerView;
+    @BindView(R.id.status_bar)
+    View statusBar;
+    @BindView(R.id.layout_title_bar)
+    LinearLayout layoutTitleBar;
+    @BindView(R.id.line)
+    View titleBarLine;
+    @BindView(R.id.tv_address)
+    TextView tvCity;
+    @BindView(R.id.iv_address)
+    ImageView ivAddress;
+
 
     private DelegateAdapter adapter;
     private List<DelegateAdapter.Adapter> adapterList=null;
@@ -35,6 +56,7 @@ public class MainHomeFragment extends BaseFragment{
 
     @Override
     public void initViewData(Intent intent, Bundle saved) {
+        initStatusBar();
         initRefreshRecyclrView();
         addHomeData();
     }
@@ -49,6 +71,13 @@ public class MainHomeFragment extends BaseFragment{
         return null;
     }
 
+    private void initStatusBar(){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
+            int height=StatusBarUtil.getStatusBarHeight(getActivity());
+            statusBar.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,height));
+        }
+    }
+
     private void initRefreshRecyclrView(){
         //禁止加载更多
         refreshRecyclerView.getRefreshLayout().setEnableLoadmore(false);
@@ -59,6 +88,39 @@ public class MainHomeFragment extends BaseFragment{
         refreshRecyclerView.getRecyclerView().setRecycledViewPool(viewPool);
         adapter=new DelegateAdapter(layoutManager,true);
         refreshRecyclerView.setAdapter(adapter);
+
+        refreshRecyclerView.getRecyclerView().addOnScrollListener(new RecyclerView.OnScrollListener() {
+            private int scrollY=0;
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                scrollY+=dy;
+                KLog.i("dy:"+dy);
+                KLog.i("scrollY:"+scrollY);
+                int barHeight=layoutTitleBar.getHeight();
+                KLog.i("barHeight:"+barHeight);
+                if(barHeight>0){
+                    float scale = (float) scrollY /barHeight;
+                    float alpha = (255 * scale);
+                    KLog.i("alpha:"+alpha);
+                    if(alpha>255f){
+                        alpha=255f;
+                    }else if(alpha<=0f){
+                        ivAddress.clearColorFilter();
+                    }
+                    layoutTitleBar.setBackgroundColor(Color.argb((int) alpha, 255, 255, 255));
+                    titleBarLine.setBackgroundColor(Color.argb((int)alpha,242,242,242));
+                    int color=interpolateColor(Color.WHITE,Color.parseColor("#909090"),(int)alpha,255);
+                    tvCity.setTextColor(color);
+                    ivAddress.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+                }
+            }
+        });
     }
 
     private void addHomeBanner(){
@@ -77,7 +139,7 @@ public class MainHomeFragment extends BaseFragment{
     }
 
     private void addHomeCarStore(){
-        MainHomeAdapter adapter=new MainHomeAdapter(MainHomeAdapter.TYPE_HOME_GROUP_TITLE,1,null);
+        MainHomeAdapter adapter=new MainHomeAdapter(MainHomeAdapter.TYPE_HOME_GROUP_TITLE,1,"发现好店");
         adapterList.add(adapter);
 
         for(int i=0;i<3;i++){
@@ -87,7 +149,7 @@ public class MainHomeFragment extends BaseFragment{
     }
 
     private void addHomeCarNews(){
-        MainHomeAdapter adapter=new MainHomeAdapter(MainHomeAdapter.TYPE_HOME_GROUP_TITLE,1,null);
+        MainHomeAdapter adapter=new MainHomeAdapter(MainHomeAdapter.TYPE_HOME_GROUP_TITLE,1,"新车快讯");
         adapterList.add(adapter);
 
         for(int i=0;i<3;i++){
@@ -109,5 +171,13 @@ public class MainHomeFragment extends BaseFragment{
         addHomeCarStore();
         addHomeCarNews();
         adapter.addAdapters(adapterList);
+    }
+
+    public int interpolateColor(int colorFrom, int colorTo, int posFrom, int posTo) {
+        float delta = posTo - posFrom;
+        int red = (int) ((Color.red(colorFrom) - Color.red(colorTo)) * delta / posTo + Color.red(colorTo));
+        int green = (int) ((Color.green(colorFrom) - Color.green(colorTo)) * delta / posTo + Color.green(colorTo));
+        int blue = (int) ((Color.blue(colorFrom) - Color.blue(colorTo)) * delta / posTo) + Color.blue(colorTo);
+        return Color.argb(255, red, green, blue);
     }
 }

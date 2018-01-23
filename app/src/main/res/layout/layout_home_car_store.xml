@@ -58,10 +58,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/ic_tag_bg"
         app:tcvItemBorderHorizontal="8dp"
-        app:tcvTextColor="#123455"
+        app:tcvTextColor="@color/colorGray"
+        app:tcvTextSize="4sp"
         app:tcvSingleLine="true"
         app:tcvCanTagClick="false"
-        app:tcvShowRightImg="false"/>
+        app:tcvShowRightImg="false"
+        app:tcvBackground="@drawable/ic_tag_bg"/>
 </LinearLayout>

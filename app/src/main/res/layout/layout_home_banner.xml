@@ -49,7 +49,7 @@
             android:layout_height="20dp"
             android:src="@mipmap/ic_hot"/>
         <com.gongwen.marqueen.SimpleMarqueeView
-            android:id="@+id/marqueeView1"
+            android:id="@+id/tv_car_news_hot"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
