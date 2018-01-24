@@ -1,0 +1,7 @@
+/build
+/framelibrary/build
+/app/build
+/app/*.iml
+/.gradle
+/*.properties
+/framelibrary/*.iml
