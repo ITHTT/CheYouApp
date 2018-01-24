@@ -71,4 +71,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     //引入框架
     implementation project(':framelibrary')
+    //文本控件
+
+    compile 'com.github.lygttpod:SuperTextView:2.1.6'
 }

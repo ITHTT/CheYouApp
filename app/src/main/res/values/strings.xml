@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">车有</string>
+    <string name="yhxx">登录/注册即表示同意<font color="#ff0000">《用户注册协议》</font></string>
 </resources>
