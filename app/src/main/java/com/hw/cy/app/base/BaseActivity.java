@@ -110,8 +110,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
             //6.0 以上可以设置状态栏的字体为黑色.使用下面注释的这行打开亮色状态栏模式,实现黑色字体,白底的需求用这句
             //window.setStatusBarColor(Color.WHITE);
 //            window.getDecorView().setSystemUiVisibility(
