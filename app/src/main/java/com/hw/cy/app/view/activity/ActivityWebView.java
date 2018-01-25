@@ -69,6 +69,7 @@ public class ActivityWebView extends BaseActivity {
         } else {
             finish();
         }
+        super.back();
     }
 
     private void initData() {
@@ -206,20 +207,8 @@ public class ActivityWebView extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+        back();
 
-        if (webBase.canGoBack()) {
-            webBase.goBack();
-        } else {
-            if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
-                super.onBackPressed();
-                return;
-            } else {
-                Toast.makeText(getBaseContext(), "再次点击返回键退出", Toast.LENGTH_SHORT).show();
-            }
-            mBackPressed = System.currentTimeMillis();
-        }
     }
-
-
 }
 
