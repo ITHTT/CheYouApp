@@ -1,5 +1,6 @@
 package com.hw.cy.app.base;
 
+import android.app.ActivityManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.htt.framelibrary.mvp.IPresenter;
 import com.htt.framelibrary.mvp.IView;
@@ -33,11 +35,11 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivityHelper;
  */
 
 public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivity implements IView<P>, SwipeBackActivityBase {
-    protected Unbinder unbinder=null;
+    protected Unbinder unbinder = null;
     protected P persenter;
     protected SwipeBackActivityHelper swipeBackHelper;
     protected TitleBar titleBar;
-    protected boolean isDestory=false;
+    protected boolean isDestory = false;
 
     @Override
     @CallSuper
@@ -82,18 +84,34 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 //BarUtils.setStatusBarAlpha(this,0);
-                StatusBarUtil.statusBarLightMode(this,true);
+                //StatusBarUtil.statusBarLightMode(this,true);
               titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(this));
                //BarUtils.addMarginTopEqualStatusBarHeight(titleBar);// 其实这个只需要调用一次即可
             }
+            if (LightMode()) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    //  titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(this));
+                    StatusBarUtil.statusBarLightMode(this, true);
+                } else {
+
+                    StatusBarUtil.statusBarLightMode(this, false);
+                }
+            }
+
         }
     }
+
 
     protected boolean isSwipeBack(){
         return true;
     }
 
-    protected void setTranslucentBar(){
+    protected boolean LightMode() {
+
+        return true;
+    }
+
+    protected void setTranslucentBar() {
         //透明状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
