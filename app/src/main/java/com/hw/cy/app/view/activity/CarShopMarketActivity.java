@@ -12,6 +12,7 @@ import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseActivity;
 import com.hw.cy.app.util.StatusBarUtil;
 import com.hw.cy.app.view.adapter.CarBrandAdapter;
+import com.hw.cy.app.view.adapter.CarShopMarketAdapter;
 import com.hw.cy.app.view.adapter.CarTypeAdapter;
 import com.hw.cy.app.view.adapter.interf.OnItemClickListener;
 
@@ -33,7 +34,7 @@ public class CarShopMarketActivity extends BaseActivity implements OnItemClickLi
 
     private CarBrandAdapter brandAdapter;
 
-    private CarTypeAdapter typeAdapter;
+    private CarShopMarketAdapter typeAdapter;
 
     @Override
     public int getContentLayoutId() {
@@ -49,7 +50,7 @@ public class CarShopMarketActivity extends BaseActivity implements OnItemClickLi
         rvCarBrand.setLayoutManager(new LinearLayoutManager(this));
         rvCarSeries.setLayoutManager(new GridLayoutManager(this, 4));
 
-        typeAdapter = new CarTypeAdapter();
+        typeAdapter = new CarShopMarketAdapter();
         brandAdapter = new CarBrandAdapter();
         brandAdapter.setOnItemClickListener(this);
         rvCarBrand.setAdapter(brandAdapter);

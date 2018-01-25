@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,7 +18,7 @@ import java.util.List;
  * Created by ithtt on 2018/1/23.
  */
 
-public class CarTypeAdapter extends RecyclerView.Adapter<CarTypeAdapter.CarBrandViewHolder> {
+public class CarShopMarketAdapter extends RecyclerView.Adapter<CarShopMarketAdapter.CarBrandViewHolder> {
     private List<String> dataList = null;
 
 
@@ -30,7 +29,7 @@ public class CarTypeAdapter extends RecyclerView.Adapter<CarTypeAdapter.CarBrand
 
     private int selectedItem = 0;
 
-    public CarTypeAdapter() {
+    public CarShopMarketAdapter() {
         this.dataList = new ArrayList<>();
     }
 
@@ -69,7 +68,7 @@ public class CarTypeAdapter extends RecyclerView.Adapter<CarTypeAdapter.CarBrand
             holder.selectedMark.setVisibility(View.INVISIBLE);
 
         }
-        holder.ivGoods.setImageResource(R.mipmap.head);
+        holder.ivGoods.setImageResource(R.mipmap.adv04);
         holder.tvCarBrandName.setText(dataList.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
