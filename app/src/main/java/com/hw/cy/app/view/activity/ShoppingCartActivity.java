@@ -19,11 +19,11 @@ import butterknife.BindView;
  * Created by ithtt on 2018/1/24.
  */
 
-public class ShoppingCartActivity extends BaseActivity<ShoppingCartPresenter>{
+public class ShoppingCartActivity extends BaseActivity<ShoppingCartPresenter> {
     @BindView(R.id.refresh_recyclerview)
     RefreshRecyclerView refreshRecyclerView;
 
-    private ShoppingCartAdapter adapter=null;
+    private ShoppingCartAdapter adapter = null;
 
     @Override
     public int getContentLayoutId() {
@@ -52,9 +52,10 @@ public class ShoppingCartActivity extends BaseActivity<ShoppingCartPresenter>{
         return new ShoppingCartPresenter();
     }
 
-    private void initRefreshRecyclerView(){
+    private void initRefreshRecyclerView() {
         refreshRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         refreshRecyclerView.getRefreshLayout().setEnableLoadmore(false);
+        adapter = new ShoppingCartAdapter();
         refreshRecyclerView.setOnRefreshLoadMoreListener(new RefreshRecyclerView.OnRefreshLoadMoreListener() {
             @Override
             public void onRefresh() {
@@ -64,7 +65,7 @@ public class ShoppingCartActivity extends BaseActivity<ShoppingCartPresenter>{
                         adapter.setData(persenter.getUserShoppingCartList());
                         refreshRecyclerView.setRefreshFinish();
                     }
-                },1000);
+                }, 1000);
             }
 
             @Override
@@ -73,7 +74,7 @@ public class ShoppingCartActivity extends BaseActivity<ShoppingCartPresenter>{
             }
         });
 
-        adapter=new ShoppingCartAdapter();
+
         refreshRecyclerView.setAdapter(adapter);
 
         refreshRecyclerView.getRefreshLayout().autoRefresh();

@@ -13,7 +13,7 @@ import com.hw.cy.app.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hw.cy.app.view.adapter.interf.onItemClickListener;
+import com.hw.cy.app.view.adapter.interf.OnItemClickListener;
 
 /**
  * Created by ithtt on 2018/1/23.
@@ -24,11 +24,11 @@ public class CarBrandAdapter extends RecyclerView.Adapter<CarBrandAdapter.CarBra
 
     private int selectedItem = 0;
 
-    public void setOnItemClickListener(onItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
+    public void setOnItemClickListener(OnItemClickListener OnItemClickListener) {
+        this.OnItemClickListener = OnItemClickListener;
     }
 
-    private onItemClickListener onItemClickListener;
+    private OnItemClickListener OnItemClickListener;
 
     public CarBrandAdapter() {
         this.dataList = new ArrayList<>();
@@ -73,7 +73,7 @@ public class CarBrandAdapter extends RecyclerView.Adapter<CarBrandAdapter.CarBra
             @Override
             public void onClick(View view) {
                 if (position != selectedItem) {
-                    onItemClickListener.onAdapterItemClick(0X001, dataList.get(position));
+                    OnItemClickListener.onAdapterItemClick(0X001, dataList.get(position));
                     selectedItem = position;
                     notifyDataSetChanged();
                 }

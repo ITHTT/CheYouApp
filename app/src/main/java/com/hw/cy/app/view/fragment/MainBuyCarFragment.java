@@ -13,7 +13,7 @@ import com.hw.cy.app.base.BaseFragment;
 import com.hw.cy.app.util.StatusBarUtil;
 import com.hw.cy.app.view.adapter.CarBrandAdapter;
 import com.hw.cy.app.view.adapter.CarTypeAdapter;
-import com.hw.cy.app.view.adapter.interf.onItemClickListener;
+import com.hw.cy.app.view.adapter.interf.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ import butterknife.BindView;
  * Created by ithtt on 2018/1/22.
  */
 
-public class MainBuyCarFragment extends BaseFragment implements onItemClickListener {
+public class MainBuyCarFragment extends BaseFragment implements OnItemClickListener {
     @BindView(R.id.rv_car_brand)
     RecyclerView rvCarBrand;
     @BindView(R.id.rv_car_series)
