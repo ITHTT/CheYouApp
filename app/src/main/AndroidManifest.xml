@@ -36,6 +36,8 @@
         <activity android:name=".view.activity.CarStoreDetailActivity" />
         <!--汽车超市-->
         <activity android:name=".view.activity.CarShopMarketActivity" />
+        <!--汽车资讯  webview-->
+        <activity android:name=".view.activity.ActivityWebView" />
     </application>
 
 </manifest>

@@ -16,27 +16,34 @@ import com.bumptech.glide.Glide;
 import com.htt.framelibrary.imageloader.GlideImageLoader;
 import com.hw.cy.app.R;
 import com.hw.cy.app.util.DensityUtil;
+import com.hw.cy.app.view.adapter.interf.OnItemClickListener;
 
 /**
  * Created by ithtt on 2018/1/23.
  */
 
-public class MainCarNewsAdapter extends DelegateAdapter.Adapter<MainCarNewsAdapter.MainCarNewsViewHolder>{
+public class MainCarNewsAdapter extends DelegateAdapter.Adapter<MainCarNewsAdapter.MainCarNewsViewHolder> {
     private Context context;
 
-    public MainCarNewsAdapter(Context context){
-        this.context=context;
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    OnItemClickListener onItemClickListener;
+
+    public MainCarNewsAdapter(Context context) {
+        this.context = context;
     }
 
     @Override
     public LayoutHelper onCreateLayoutHelper() {
-        LinearLayoutHelper linearLayoutHelper=new LinearLayoutHelper();
+        LinearLayoutHelper linearLayoutHelper = new LinearLayoutHelper();
         return linearLayoutHelper;
     }
 
     @Override
     public MainCarNewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.layout_car_news_item,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_car_news_item, parent, false);
         return new MainCarNewsViewHolder(view);
     }
 
@@ -49,6 +56,12 @@ public class MainCarNewsAdapter extends DelegateAdapter.Adapter<MainCarNewsAdapt
         holder.tvCarNewsTitle.setText("更高级的大玩具 全新Jeep牧马人 新车解析");
         holder.tvCarNewsCreateTime.setText("3小时前");
         holder.tvCarNewsReadCount.setText("阅读量 3233");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickListener.onAdapterItemClick(0X001, "");
+            }
+        });
 
     }
 
@@ -57,7 +70,7 @@ public class MainCarNewsAdapter extends DelegateAdapter.Adapter<MainCarNewsAdapt
         return 20;
     }
 
-    public static final class MainCarNewsViewHolder extends RecyclerView.ViewHolder{
+    public static final class MainCarNewsViewHolder extends RecyclerView.ViewHolder {
         ImageView ivCarNewsThumb;
         TextView tvCarNewsTitle;
         TextView tvCarNewsCreateTime;
@@ -65,10 +78,10 @@ public class MainCarNewsAdapter extends DelegateAdapter.Adapter<MainCarNewsAdapt
 
         public MainCarNewsViewHolder(View itemView) {
             super(itemView);
-            ivCarNewsThumb=itemView.findViewById(R.id.iv_car_news_thumb);
-            tvCarNewsTitle=itemView.findViewById(R.id.tv_car_news_title);
-            tvCarNewsCreateTime=itemView.findViewById(R.id.tv_car_news_create_time);
-            tvCarNewsReadCount=itemView.findViewById(R.id.tv_car_news_read_count);
+            ivCarNewsThumb = itemView.findViewById(R.id.iv_car_news_thumb);
+            tvCarNewsTitle = itemView.findViewById(R.id.tv_car_news_title);
+            tvCarNewsCreateTime = itemView.findViewById(R.id.tv_car_news_create_time);
+            tvCarNewsReadCount = itemView.findViewById(R.id.tv_car_news_read_count);
         }
     }
 }

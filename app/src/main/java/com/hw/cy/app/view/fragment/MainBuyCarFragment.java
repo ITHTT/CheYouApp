@@ -62,7 +62,6 @@ public class MainBuyCarFragment extends BaseFragment implements OnItemClickListe
         }
         titleBar.setTitleName("购车");
         titleBar.hideBack();
-
         rvCarBrand.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         rvCarSeries.setLayoutManager(new GridLayoutManager(this.getActivity(), 4));
 
