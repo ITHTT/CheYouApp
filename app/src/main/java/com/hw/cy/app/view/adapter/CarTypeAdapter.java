@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -66,7 +67,9 @@ public class CarTypeAdapter extends RecyclerView.Adapter<CarTypeAdapter.CarBrand
             holder.layoutCarBandItem.setSelected(false);
             holder.tvCarBrandName.setTextColor(Color.parseColor("#333333"));
             holder.selectedMark.setVisibility(View.INVISIBLE);
+
         }
+        holder.ivGoods.setImageResource(R.mipmap.adv04);
         holder.tvCarBrandName.setText(dataList.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,12 +88,15 @@ public class CarTypeAdapter extends RecyclerView.Adapter<CarTypeAdapter.CarBrand
     }
 
     public static final class CarBrandViewHolder extends RecyclerView.ViewHolder {
+
+        ImageView ivGoods;
         TextView tvCarBrandName;
         View selectedMark;
         LinearLayout layoutCarBandItem;
 
         public CarBrandViewHolder(View itemView) {
             super(itemView);
+            ivGoods = itemView.findViewById(R.id.iv_goods);
             tvCarBrandName = itemView.findViewById(R.id.tv_car_type);
             selectedMark = itemView.findViewById(R.id.selected_mark);
             layoutCarBandItem = itemView.findViewById(R.id.layout_car_brand_item);

@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:background="@null"
+        android:focusable="false"
         android:hint="请输入你要搜索的内容"
         android:textColor="@color/colorGray"
         android:textSize="13sp" />

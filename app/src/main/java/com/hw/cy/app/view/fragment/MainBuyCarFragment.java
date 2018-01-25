@@ -84,10 +84,12 @@ public class MainBuyCarFragment extends BaseFragment implements OnItemClickListe
         dataList.add("长安");
         dataList.add("宾利");
         dataList.add("日产");
+        dataList.add("法拉利");
         dataList.add("特斯拉");
         dataList.add("红旗");
         dataList.add("吉利");
         dataList.add("JEEP");
+        dataList.add("兰博基尼");
         dataList.add("轮胎配件");
         dataList.add("清洗美容");
         brandAdapter.setDataList(dataList);
