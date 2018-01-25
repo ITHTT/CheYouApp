@@ -25,7 +25,7 @@
             android:text="服务内容"/>
     </LinearLayout>
     <com.hw.cy.app.view.widget.NoScrollerListView
-        android:id="@+id/lv_car_sto"
+        android:id="@+id/lv_car_store_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"

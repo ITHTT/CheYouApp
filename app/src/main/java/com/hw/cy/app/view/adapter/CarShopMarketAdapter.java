@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.hw.cy.app.R;
+import com.hw.cy.app.view.activity.CarGoodsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +79,7 @@ public class CarShopMarketAdapter extends RecyclerView.Adapter<CarShopMarketAdap
                     selectedItem = position;
                     notifyDataSetChanged();
                 }
+                ActivityUtils.startActivity(CarGoodsActivity.class);
             }
         });
     }

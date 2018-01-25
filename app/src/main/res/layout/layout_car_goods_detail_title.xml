@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <include
+        layout="@layout/layout_home_divider_line"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingTop="15dp"
+        android:paddingBottom="8dp">
+        <View
+            android:layout_width="4dp"
+            android:layout_height="20dp"
+            android:background="@color/colorAppTheme"/>
+        <TextView
+            android:id="@+id/tv_title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/view_tag"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorBlackText"
+            android:text="全部评价"/>
+    </LinearLayout>
+    <View style="@style/HorizontalLineStyle"/>
+</LinearLayout>

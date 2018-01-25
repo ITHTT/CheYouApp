@@ -36,8 +36,12 @@
         <activity android:name=".view.activity.CarStoreDetailActivity" />
         <!--汽车超市-->
         <activity android:name=".view.activity.CarShopMarketActivity" />
+        <!--商品列表-->
+        <activity android:name=".view.activity.CarGoodsActivity"/>
         <!--汽车资讯  webview-->
         <activity android:name=".view.activity.ActivityWebView" />
+        <!--商品详情-->
+        <activity android:name=".view.activity.CarGoodsDetailActivity"/>
     </application>
 
 </manifest>

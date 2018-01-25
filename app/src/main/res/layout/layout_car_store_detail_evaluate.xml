@@ -126,7 +126,7 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -140,7 +140,6 @@
             android:button="@null"
             android:textColor="@color/color_car_store_evaluate_menu_selector"
             android:textSize="14sp"
-            android:checked="true"
             android:drawablePadding="2dp"
             android:drawableBottom="@drawable/ic_car_store_evaluate_menu_bottom"
             android:text="全部(9)"/>
@@ -166,5 +165,6 @@
             android:drawablePadding="2dp"
             android:drawableBottom="@drawable/ic_car_store_evaluate_menu_bottom"
             android:text="差评(3)"/>
-    </LinearLayout>
+    </RadioGroup>
+    <View style="@style/HorizontalLineStyle"/>
 </LinearLayout>

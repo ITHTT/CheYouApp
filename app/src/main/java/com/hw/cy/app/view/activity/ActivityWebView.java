@@ -1,6 +1,7 @@
 package com.hw.cy.app.view.activity;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -39,6 +40,7 @@ public class ActivityWebView extends BaseActivity {
         return R.layout.activity_webview;
     }
 
+    @SuppressLint("NewApi")
     @Override
     public void initViewData(Intent intent, Bundle saved) {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
@@ -208,7 +210,6 @@ public class ActivityWebView extends BaseActivity {
     @Override
     public void onBackPressed() {
         back();
-
     }
 }
 

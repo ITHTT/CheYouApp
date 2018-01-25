@@ -1,18 +1,15 @@
-package com.hw.cy.app.view.activity;
+package com.hw.cy.app.view.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.hw.cy.app.R;
-import com.hw.cy.app.base.BaseActivity;
-import com.hw.cy.app.util.DensityUtil;
+import com.hw.cy.app.base.BaseFragment;
+import com.hw.cy.app.view.adapter.CarGoodsDetailAdapter;
 import com.hw.cy.app.view.adapter.CarStoreDetailAdapter;
-import com.hw.cy.app.view.adapter.MainCarStoreAdapter;
-import com.hw.cy.app.view.widget.RecycleViewDivider;
 import com.hw.cy.app.view.widget.RefreshRecyclerView;
 
 import java.util.ArrayList;
@@ -21,27 +18,26 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
- * Created by ithtt on 2018/1/24.
+ * Created by ithtt on 2018/1/25.
  */
 
-public class CarStoreDetailActivity extends BaseActivity{
+public class CarGoodsDetailFragment extends BaseFragment{
     @BindView(R.id.refresh_recyclerview)
     RefreshRecyclerView refreshRecyclerView;
 
-    private List<DelegateAdapter.Adapter> adapterList;
     private DelegateAdapter delegateAdapter;
-
+    private List<DelegateAdapter.Adapter> adapterList;
 
     @Override
     public int getContentLayoutId() {
-        return R.layout.activity_car_store_detail;
+        return R.layout.fragment_car_goods_detail;
     }
 
     @Override
     public void initViewData(Intent intent, Bundle saved) {
-        titleBar.setTitleName("陕西安泰捷豹4S店");
         initRefreshRecyclrView();
         addAdapters();
+
     }
 
     @Override
@@ -55,32 +51,28 @@ public class CarStoreDetailActivity extends BaseActivity{
     }
 
     private void initRefreshRecyclrView(){
-        VirtualLayoutManager layoutManager=new VirtualLayoutManager(this);
+        VirtualLayoutManager layoutManager=new VirtualLayoutManager(this.getActivity());
         refreshRecyclerView.setLayoutManager(layoutManager);
         final RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
-        viewPool.setMaxRecycledViews(CarStoreDetailAdapter.TYPE_CAR_STORE_DETAIL_COMMENT,5);
+        viewPool.setMaxRecycledViews(CarGoodsDetailAdapter.TYPE_CAR_GOODS_DETAIL_COMMENT,5);
         refreshRecyclerView.getRecyclerView().setRecycledViewPool(viewPool);
         delegateAdapter=new DelegateAdapter(layoutManager,true);
         refreshRecyclerView.setAdapter(delegateAdapter);
-
     }
 
     private void addAdapters(){
-        adapterList=new ArrayList<>(8);
-        CarStoreDetailAdapter adapter=new CarStoreDetailAdapter(CarStoreDetailAdapter.TYPE_CAR_STORE_DETAIL_INFO,1);
+        adapterList=new ArrayList<>(12);
+
+        CarGoodsDetailAdapter adapter=new CarGoodsDetailAdapter(CarGoodsDetailAdapter.TYPE_CAR_GOODS_DETAIL,1);
         adapterList.add(adapter);
 
-        adapter=new CarStoreDetailAdapter(CarStoreDetailAdapter.TYPE_CAR_STORE_DETAIL_SERVICE,1);
+        adapter=new CarGoodsDetailAdapter(CarGoodsDetailAdapter.TYPE_CAR_GOODS_DETAIL_TITLE,1);
         adapterList.add(adapter);
 
-        adapter=new CarStoreDetailAdapter(CarStoreDetailAdapter.TYPE_CAR_STORE_DETAIL_EVALUATE,1);
-        adapterList.add(adapter);
-
-        adapter=new CarStoreDetailAdapter(CarStoreDetailAdapter.TYPE_CAR_STORE_DETAIL_COMMENT,9);
+        adapter=new CarGoodsDetailAdapter(CarGoodsDetailAdapter.TYPE_CAR_GOODS_DETAIL_COMMENT,10);
         adapterList.add(adapter);
 
         delegateAdapter.addAdapters(adapterList);
-
 
     }
 }

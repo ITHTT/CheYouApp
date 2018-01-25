@@ -96,6 +96,7 @@
             android:textColor="@color/colorGray"
             android:text="雁塔区金港汽车公园路135号向北100米"/>
         <Button
+            android:id="@+id/btn_navigation"
             android:layout_width="70dp"
             android:layout_height="25dp"
             android:layout_alignParentRight="true"

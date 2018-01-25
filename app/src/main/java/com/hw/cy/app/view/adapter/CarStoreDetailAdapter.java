@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
@@ -11,6 +13,10 @@ import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.alibaba.android.vlayout.layout.StickyLayoutHelper;
 import com.hw.cy.app.R;
 import com.hw.cy.app.view.widget.RecycleViewDivider;
+import com.willy.ratingbar.ScaleRatingBar;
+import com.youth.banner.Banner;
+
+import me.next.tagview.TagCloudView;
 
 /**
  * Created by ithtt on 2018/1/24.
@@ -75,9 +81,40 @@ public class CarStoreDetailAdapter extends DelegateAdapter.Adapter<CarStoreDetai
     }
 
     public static final class CarStoreDetailViewHolder extends RecyclerView.ViewHolder{
+        Banner banner;
+        TextView tvCarStoreName;
+        ScaleRatingBar storeRatingBar;
+        TagCloudView storeTagView;
+        TextView tvCarStoreDistance;
+        TextView tvCarStoreAddress;
+
+        ListView lvStoreService;
+        TextView tvStoreServiceExtra;
+
+        TextView tvStoreEvaluate;
+        ScaleRatingBar storeServiceRatingBar;
+        ScaleRatingBar storeFixRatingBar;
+
+
+
 
         public CarStoreDetailViewHolder(View itemView) {
             super(itemView);
+            banner=itemView.findViewById(R.id.banner);
+            tvCarStoreName=itemView.findViewById(R.id.tv_car_store_name);
+            storeRatingBar=itemView.findViewById(R.id.rating_bar);
+            storeTagView=itemView.findViewById(R.id.tag_cloud_view);
+            tvCarStoreDistance=itemView.findViewById(R.id.tv_car_store_distance);
+            tvCarStoreAddress=itemView.findViewById(R.id.tv_car_store_address);
+
+            lvStoreService=itemView.findViewById(R.id.lv_car_store_service);
+            tvStoreServiceExtra=itemView.findViewById(R.id.tv_store_extra);
+
+            tvStoreEvaluate=itemView.findViewById(R.id.tv_car_store_evaluate_value);
+            storeServiceRatingBar=itemView.findViewById(R.id.service_rating_bar);
+            storeFixRatingBar=itemView.findViewById(R.id.fix_rating_bar);
+
+
         }
     }
 }

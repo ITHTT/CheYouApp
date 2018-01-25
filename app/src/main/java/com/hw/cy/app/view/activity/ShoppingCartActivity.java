@@ -62,8 +62,10 @@ public class ShoppingCartActivity extends BaseActivity<ShoppingCartPresenter> {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        adapter.setData(persenter.getUserShoppingCartList());
-                        refreshRecyclerView.setRefreshFinish();
+                        if(persenter!=null) {
+                            adapter.setData(persenter.getUserShoppingCartList());
+                            refreshRecyclerView.setRefreshFinish();
+                        }
                     }
                 }, 1000);
             }

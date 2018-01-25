@@ -48,46 +48,34 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setTranslucentBar();
         super.onCreate(savedInstanceState);
-        if (getContentLayoutId() > 0) {
-            /**
-             * 解决7.0以上系统 状态栏透明蒙灰问题，切勿删除
-             */
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                try {
-                    Class decorViewClazz = Class.forName("com.android.internal.policy.DecorView");
-                    Field field = decorViewClazz.getDeclaredField("mSemiTransparentStatusBarColor");
-                    field.setAccessible(true);
-                    field.setInt(getWindow().getDecorView(), Color.TRANSPARENT);  //改为透明
-                } catch (Exception e) {
-                }
-            }
+        if(getContentLayoutId()>0){
             setContentView(getContentLayoutId());
-            unbinder = ButterKnife.bind(this);
+            unbinder= ButterKnife.bind(this);
             initTitleBar();
             setEventListener();
-            if (isBindRxBus()) {
+            if(isBindRxBus()){
                 RxBus.get().register(this);
             }
-            if (isSwipeBack()) {
+            if(isSwipeBack()){
                 try {
                     swipeBackHelper = new SwipeBackActivityHelper(this);
                     swipeBackHelper.onActivityCreate();
                     swipeBackHelper.getSwipeBackLayout().setEdgeSize(DensityUtil.dip2px(this, 15));
-                } catch (Exception e) {
+                }catch (Exception e){
 
                 }
             }
         }
-        persenter = newPersenter();
-        if (persenter != null) {
+        persenter=newPersenter();
+        if(persenter!=null) {
             persenter.attachV(this);
         }
-        initViewData(getIntent(), savedInstanceState);
+        initViewData(getIntent(),savedInstanceState);
     }
 
-    protected void initTitleBar() {
-        titleBar = (TitleBar) this.findViewById(R.id.toolbar);
-        if (titleBar != null) {
+    protected void initTitleBar(){
+        titleBar= (TitleBar) this.findViewById(R.id.toolbar);
+        if(titleBar!=null){
             setSupportActionBar(titleBar);
             titleBar.setOnClickBackListener(new View.OnClickListener() {
                 @Override
@@ -95,27 +83,22 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
                     back();
                 }
             });
-
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                //BarUtils.setStatusBarAlpha(this,0);
-                //StatusBarUtil.statusBarLightMode(this,true);
-                titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(this));
-                //BarUtils.addMarginTopEqualStatusBarHeight(titleBar);// 其实这个只需要调用一次即可
+              titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(this));
             }
-            if (isLightMode()) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    //  titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(this));
-                    StatusBarUtil.statusBarLightMode(this, true);
-                } else {
-                    StatusBarUtil.statusBarLightMode(this, false);
-                }
+        }
+        if (isLightMode()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                //  titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(this));
+                StatusBarUtil.statusBarLightMode(this, true);
+            } else {
+                StatusBarUtil.statusBarLightMode(this, false);
             }
-
         }
     }
 
 
-    protected boolean isSwipeBack() {
+    protected boolean isSwipeBack(){
         return true;
     }
 
@@ -129,8 +112,19 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             // Translucent status bar
-            window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+            window.setFlags( WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            /**
+             * 解决7.0以上系统 状态栏透明蒙灰问题，切勿删除
+             */
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                try {
+                    Class decorViewClazz = Class.forName("com.android.internal.policy.DecorView");
+                    Field field = decorViewClazz.getDeclaredField("mSemiTransparentStatusBarColor");
+                    field.setAccessible(true);
+                    field.setInt(getWindow().getDecorView(), Color.TRANSPARENT);  //改为透明
+                } catch (Exception e) {}
+            }
         }
 
 //        Window window=getWindow();
@@ -151,7 +145,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
 //        }
     }
 
-    protected void back() {
+    protected void back(){
         this.finish();
     }
 
@@ -163,23 +157,23 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
     @Override
     @CallSuper
     protected void onDestroy() {
-        isDestory = true;
-        if (unbinder != null) {
+        isDestory=true;
+        if(unbinder!=null){
             unbinder.unbind();
         }
-        if (isBindRxBus()) {
+        if(isBindRxBus()){
             RxBus.get().unregister(this);
         }
-        if (persenter != null) {
+        if(persenter!=null){
             persenter.detachV();
-            persenter = null;
+            persenter=null;
         }
         super.onDestroy();
     }
 
     @Override
     public SwipeBackLayout getSwipeBackLayout() {
-        if (swipeBackHelper != null) {
+        if(swipeBackHelper!=null){
             return swipeBackHelper.getSwipeBackLayout();
         }
         return null;
@@ -187,16 +181,16 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
 
     @Override
     public void setSwipeBackEnable(boolean enable) {
-        SwipeBackLayout swipeBackLayout = getSwipeBackLayout();
-        if (swipeBackLayout != null) {
+        SwipeBackLayout swipeBackLayout=getSwipeBackLayout();
+        if(swipeBackLayout!=null){
             swipeBackLayout.setEnableGesture(enable);
         }
     }
 
     @Override
     public void scrollToFinishActivity() {
-        SwipeBackLayout swipeBackLayout = getSwipeBackLayout();
-        if (swipeBackLayout != null) {
+        SwipeBackLayout swipeBackLayout=getSwipeBackLayout();
+        if(swipeBackLayout!=null){
             swipeBackLayout.scrollToFinishActivity();
         }
     }
@@ -204,7 +198,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        if (swipeBackHelper != null) {
+        if(swipeBackHelper!=null) {
             swipeBackHelper.onPostCreate();
         }
     }

@@ -38,7 +38,6 @@ public class ShoppingCartPresenter extends BasePresenter<ShoppingCartActivity> {
                 list.add(item);
             }
         }
-
         return list;
     }
 }
