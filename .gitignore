@@ -34,3 +34,7 @@ out/
 .gitignore
 
 /.idea
+/*.iml
+/gradlew.bat
+/gradle
+/gradlew
