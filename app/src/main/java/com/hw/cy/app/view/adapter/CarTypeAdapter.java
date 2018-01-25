@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hw.cy.app.R;
@@ -13,24 +14,22 @@ import com.hw.cy.app.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hw.cy.app.view.adapter.interf.onItemClickListener;
-
 /**
  * Created by ithtt on 2018/1/23.
  */
 
-public class CarBrandAdapter extends RecyclerView.Adapter<CarBrandAdapter.CarBrandViewHolder> {
+public class CarTypeAdapter extends RecyclerView.Adapter<CarTypeAdapter.CarBrandViewHolder> {
     private List<String> dataList = null;
+
+
+    public int getSelectedItem() {
+        return selectedItem;
+    }
+
 
     private int selectedItem = 0;
 
-    public void setOnItemClickListener(onItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
-    }
-
-    private onItemClickListener onItemClickListener;
-
-    public CarBrandAdapter() {
+    public CarTypeAdapter() {
         this.dataList = new ArrayList<>();
     }
 
@@ -53,7 +52,7 @@ public class CarBrandAdapter extends RecyclerView.Adapter<CarBrandAdapter.CarBra
 
     @Override
     public CarBrandViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_car_brand_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_car_type_item, parent, false);
         return new CarBrandViewHolder(view);
     }
 
@@ -66,14 +65,13 @@ public class CarBrandAdapter extends RecyclerView.Adapter<CarBrandAdapter.CarBra
         } else {
             holder.layoutCarBandItem.setSelected(false);
             holder.tvCarBrandName.setTextColor(Color.parseColor("#333333"));
-            holder.selectedMark.setVisibility(View.GONE);
+            holder.selectedMark.setVisibility(View.INVISIBLE);
         }
         holder.tvCarBrandName.setText(dataList.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (position != selectedItem) {
-                    onItemClickListener.onAdapterItemClick(0X001, dataList.get(position));
                     selectedItem = position;
                     notifyDataSetChanged();
                 }
@@ -89,11 +87,11 @@ public class CarBrandAdapter extends RecyclerView.Adapter<CarBrandAdapter.CarBra
     public static final class CarBrandViewHolder extends RecyclerView.ViewHolder {
         TextView tvCarBrandName;
         View selectedMark;
-        FrameLayout layoutCarBandItem;
+        LinearLayout layoutCarBandItem;
 
         public CarBrandViewHolder(View itemView) {
             super(itemView);
-            tvCarBrandName = itemView.findViewById(R.id.tv_car_brand_name);
+            tvCarBrandName = itemView.findViewById(R.id.tv_car_type);
             selectedMark = itemView.findViewById(R.id.selected_mark);
             layoutCarBandItem = itemView.findViewById(R.id.layout_car_brand_item);
         }
