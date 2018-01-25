@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_titlebar" />
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        stv:sLeftTopTextString="迪丽热巴"
+        stv:sLeftViewGravity="left_center"
+        stv:sRightIconRes="@mipmap/ic_arrow_next"
+        stv:sRightTvDrawableRight="@mipmap/ic_home_menu05" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextSize="14dip"
+                stv:sLeftTextString="姓名"
+                stv:sRightIconRes="@mipmap/ic_arrow_next"
+                stv:sRightTextSize="12dp"
+                stv:sRightTextString="蓬莱" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextSize="14dip"
+                stv:sLeftTextString="性别"
+                stv:sRightIconRes="@mipmap/ic_arrow_next"
+                stv:sRightTextSize="12dp"
+                stv:sRightTextString="男" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextSize="14dip"
+                stv:sLeftTextString="手机号"
+                stv:sRightIconRes="@mipmap/ic_arrow_next"
+                stv:sRightTextSize="12dp"
+                stv:sRightTextString="18092608619" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextSize="14dip"
+                stv:sLeftTextString="昵称"
+                stv:sRightIconRes="@mipmap/ic_arrow_next"
+                stv:sRightTextSize="12dp"
+                stv:sRightTextString="小蓬莱" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextSize="14dip"
+                stv:sLeftTextString="个人签名"
+                stv:sRightIconRes="@mipmap/ic_arrow_next"
+                stv:sRightTextSize="12dp"
+                stv:sRightTextString="用最初的心,走最远的路" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextSize="14dip"
+                stv:sLeftTextString="QQ绑定"
+                stv:sRightIconRes="@mipmap/ic_arrow_next"
+                stv:sRightTextSize="12dp"
+                stv:sRightTextString="85697890" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextSize="14dip"
+                stv:sLeftTextString="微信绑定"
+                stv:sRightIconRes="@mipmap/ic_arrow_next"
+                stv:sRightTextSize="12dp"
+                stv:sRightTextString="85697890" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/colorGrayc" />
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextSize="14dip"
+                stv:sLeftTextString="收货地址管理"
+                stv:sRightIconRes="@mipmap/ic_arrow_next"
+                stv:sRightTextSize="12dp"
+                stv:sRightTextString="陕西省西安" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="我的爱车"
+                stv:sRightTextBackground="@android:drawable/ic_menu_add"
+                stv:sRightTextColor="@color/colorPrimary"
+                stv:sRightTextSize="10sp" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sCenterTvDrawableLeft="@mipmap/ic_login_code"
+                stv:sLeftTextString="宝马X5M  (默认)"
+                stv:sRightTextBackground="@android:drawable/ic_delete"
+                stv:sRightTextColor="@color/colorPrimary"
+
+                stv:sRightTextSize="10sp" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="雷克萨斯570"
+                stv:sRightTextBackground="@android:drawable/ic_delete"
+                stv:sRightTextColor="@color/colorPrimary"
+                stv:sRightTextSize="10sp" />
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>

@@ -40,6 +40,11 @@
         <activity android:name=".view.activity.CarGoodsActivity"/>
         <!--汽车资讯  webview-->
         <activity android:name=".view.activity.ActivityWebView" />
+        <!--个人资料-->
+        <activity android:name=".view.activity.ProfileActivity" />
+        <!--商品收藏-->
+        <activity android:name=".view.activity.CollectActivity" />
+
         <!--商品详情-->
         <activity android:name=".view.activity.CarGoodsDetailActivity"/>
     </application>
