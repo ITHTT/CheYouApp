@@ -2,14 +2,14 @@
 <resources>
     <!--首页菜单项View-->
     <declare-styleable name="MainTabView">
-        <attr name="tab_name" format="string"/>
-        <attr name="tab_icon" format="reference"/>
+        <attr name="tab_name" format="string" />
+        <attr name="tab_icon" format="reference" />
     </declare-styleable>
 
     <!--自定义设置大小比例的ImageView-->
     <declare-styleable name="ResizeImageView">
-        <attr name="resize_width" format="integer"/>
-        <attr name="resize_height" format="integer"/>
+        <attr name="resize_width" format="integer" />
+        <attr name="resize_height" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="AmountView">
@@ -18,7 +18,16 @@
         <!-- 中间TextView的宽度 -->
         <attr name="tvWidth" format="dimension" />
         <!--<attr name="tvColor" format="color"/>-->
-        <attr name="tvTextSize" format="dimension"/>
-        <attr name="btnTextSize" format="dimension"/>
+        <attr name="tvTextSize" format="dimension" />
+        <attr name="btnTextSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <!-- {@deprecated Use civ_circlebackground_color instead.} -->
+        <attr name="civ_fill_color" format="color" />
+        <attr name="civ_circle_background_color" format="color" />
     </declare-styleable>
 </resources>

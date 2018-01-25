@@ -85,16 +85,16 @@ public class LoginActivity extends BaseActivity {
 
         @Override
         public void onTick(long millisUntilFinished) {
-           // tvSendCode.setBackgroundColor(Color.parseColor("#B6B6D8"));
+            // tvSendCode.setBackgroundColor(Color.parseColor("#B6B6D8"));
             tvSendCode.setClickable(false);
-            tvSendCode.setText("(" + millisUntilFinished / 1000 + ") 秒后可重新发送");
+            tvSendCode.setText("重新发送" + "(" + millisUntilFinished / 1000 + ") 秒");
         }
 
         @Override
         public void onFinish() {
             tvSendCode.setText("重新获取验证码");
             tvSendCode.setClickable(true);
-           // tvSendCode.setBackgroundColor(Color.parseColor("#4EB84A"));
+            // tvSendCode.setBackgroundColor(Color.parseColor("#4EB84A"));
 
         }
     }
