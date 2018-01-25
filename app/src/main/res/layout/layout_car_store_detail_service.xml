@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <include
+        layout="@layout/layout_home_divider_line"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingTop="15dp">
+        <View
+            android:layout_width="4dp"
+            android:layout_height="20dp"
+            android:background="@color/colorAppTheme"/>
+        <TextView
+            android:id="@+id/tv_title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/view_tag"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/colorBlackText"
+            android:text="服务内容"/>
+    </LinearLayout>
+    <com.hw.cy.app.view.widget.NoScrollerListView
+        android:id="@+id/lv_car_sto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:dividerHeight="12dp"
+        android:divider="@color/colorWhite" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="15dp"
+        android:gravity="center_vertical"
+        android:background="@color/colorWhite">
+        <TextView
+            android:layout_width="34dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="1dp"
+            android:background="@drawable/ic_red_border"
+            android:textSize="13.5sp"
+            android:textColor="#F04848"
+            android:text="优惠"/>
+        <TextView
+            android:id="@+id/tv_store_extra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:padding="1dp"
+            android:textSize="13sp"
+            android:textColor="@color/colorGray"
+            android:text="本店购车用户享总价折扣上再打8折优惠"/>
+    </LinearLayout>
+</LinearLayout>

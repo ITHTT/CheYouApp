@@ -22,6 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--购物车-->
+        <activity android:name=".view.activity.ShoppingCartActivity"/>
+        <!--洗车-->
+        <activity android:name=".view.activity.CarWashStoreActivity"/>
+        <!--商店详情-->
+        <activity android:name=".view.activity.CarStoreDetailActivity"/>
     </application>
 
 </manifest>

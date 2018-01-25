@@ -50,11 +50,6 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment implem
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {

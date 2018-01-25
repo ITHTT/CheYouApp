@@ -1,6 +1,8 @@
 package com.hw.cy.app.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.htt.framelibrary.imageloader.GlideImageLoader;
 import com.hw.cy.app.R;
 import com.hw.cy.app.util.DensityUtil;
+import com.hw.cy.app.view.activity.CarStoreDetailActivity;
 import com.willy.ratingbar.ScaleRatingBar;
 
 import java.util.ArrayList;
@@ -36,8 +39,6 @@ public class MainCarStoreAdapter extends DelegateAdapter.Adapter<MainCarStoreAda
     @Override
     public LayoutHelper onCreateLayoutHelper() {
         LinearLayoutHelper linearLayoutHelper=new LinearLayoutHelper();
-        int dividerHeight= DensityUtil.dip2px(context,10);
-        linearLayoutHelper.setMargin(dividerHeight,0,dividerHeight,0);
         return linearLayoutHelper;
     }
 
@@ -64,6 +65,14 @@ public class MainCarStoreAdapter extends DelegateAdapter.Adapter<MainCarStoreAda
         holder.tagCloudView.setTags(tags);
 
         holder.tvCarStoreDistance.setText("200m");
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, CarStoreDetailActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
     }
 

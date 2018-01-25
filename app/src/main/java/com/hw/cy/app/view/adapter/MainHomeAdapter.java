@@ -43,10 +43,16 @@ public class MainHomeAdapter extends DelegateAdapter.Adapter<MainHomeAdapter.Mai
     private int viewCount;
     private Object data;
 
+    private View.OnClickListener onClickMenuListener=null;
+
     public MainHomeAdapter(int viewType,int viewCount,Object data){
         this.viewType=viewType;
         this.viewCount=viewCount;
         this.data=data;
+    }
+
+    public void setOnClickMenuListener(View.OnClickListener listener){
+        this.onClickMenuListener=listener;
     }
 
     @Override
@@ -86,6 +92,8 @@ public class MainHomeAdapter extends DelegateAdapter.Adapter<MainHomeAdapter.Mai
             setHomeCarStore(holder);
         }else if(viewType==TYPE_HOME_CAR_NEWS){
             setHomeCarNews(holder);
+        }else if(viewType==TYPE_HOME_MENU){
+            setHomeMenu(holder);
         }
     }
 
@@ -153,6 +161,19 @@ public class MainHomeAdapter extends DelegateAdapter.Adapter<MainHomeAdapter.Mai
                 "http://img2.bitautoimg.com/autoalbum/files/20151120/504/13502150406117_4360985_4.jpg",
                 R.color.colorLine,
                 holder.ivCarNewsThumb03);
+    }
+
+    public void setHomeMenu(MainHomeViewHolder holder){
+        if(onClickMenuListener!=null) {
+            holder.itemView.findViewById(R.id.layout_menu_01).setOnClickListener(onClickMenuListener);
+            holder.itemView.findViewById(R.id.layout_menu_02).setOnClickListener(onClickMenuListener);
+            holder.itemView.findViewById(R.id.layout_menu_03).setOnClickListener(onClickMenuListener);
+            holder.itemView.findViewById(R.id.layout_menu_04).setOnClickListener(onClickMenuListener);
+            holder.itemView.findViewById(R.id.layout_menu_05).setOnClickListener(onClickMenuListener);
+            holder.itemView.findViewById(R.id.layout_menu_06).setOnClickListener(onClickMenuListener);
+            holder.itemView.findViewById(R.id.layout_menu_07).setOnClickListener(onClickMenuListener);
+            holder.itemView.findViewById(R.id.layout_menu_08).setOnClickListener(onClickMenuListener);
+        }
     }
 
     public static final class MainHomeViewHolder extends RecyclerView.ViewHolder{

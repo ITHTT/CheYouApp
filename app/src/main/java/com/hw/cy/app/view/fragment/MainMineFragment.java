@@ -3,14 +3,17 @@ package com.hw.cy.app.view.fragment;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.htt.framelibrary.log.KLog;
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseFragment;
 import com.hw.cy.app.util.StatusBarUtil;
+import com.hw.cy.app.view.activity.ShoppingCartActivity;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by ithtt on 2018/1/22.
@@ -57,5 +60,11 @@ public class MainMineFragment extends BaseFragment{
                 StatusBarUtil.statusBarLightMode(this.getActivity(), false);
             }
         }
+    }
+
+    @OnClick(R.id.layout_user_shopping_cart)
+    public void onClickShoppingCart(View view){
+        Intent intent=new Intent(getActivity(), ShoppingCartActivity.class);
+        startActivity(intent);
     }
 }

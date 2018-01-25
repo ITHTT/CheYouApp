@@ -19,6 +19,7 @@ import com.htt.framelibrary.log.KLog;
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseFragment;
 import com.hw.cy.app.util.StatusBarUtil;
+import com.hw.cy.app.view.activity.CarWashStoreActivity;
 import com.hw.cy.app.view.adapter.MainHomeAdapter;
 import com.hw.cy.app.view.widget.RefreshRecyclerView;
 
@@ -31,7 +32,7 @@ import butterknife.BindView;
  * Created by ithtt on 2018/1/22.
  */
 
-public class MainHomeFragment extends BaseFragment{
+public class MainHomeFragment extends BaseFragment implements View.OnClickListener{
     @BindView(R.id.refresh_recyclerview)
     RefreshRecyclerView refreshRecyclerView;
     @BindView(R.id.status_bar)
@@ -137,6 +138,7 @@ public class MainHomeFragment extends BaseFragment{
 
     private void addHomeMenu(){
         MainHomeAdapter adapter=new MainHomeAdapter(MainHomeAdapter.TYPE_HOME_MENU,1,null);
+        adapter.setOnClickMenuListener(this);
         adapterList.add(adapter);
     }
 
@@ -204,4 +206,12 @@ public class MainHomeFragment extends BaseFragment{
         }
     }
 
+    @Override
+    public void onClick(View view) {
+        int id=view.getId();
+        if(id==R.id.layout_menu_01){
+            Intent intent=new Intent(getActivity(), CarWashStoreActivity.class);
+            startActivity(intent);
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package com.hw.cy.app.view.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,8 +31,6 @@ public class MainCarNewsAdapter extends DelegateAdapter.Adapter<MainCarNewsAdapt
     @Override
     public LayoutHelper onCreateLayoutHelper() {
         LinearLayoutHelper linearLayoutHelper=new LinearLayoutHelper();
-        int dividerHeight= DensityUtil.dip2px(context,10);
-        linearLayoutHelper.setMargin(dividerHeight,0,dividerHeight,0);
         return linearLayoutHelper;
     }
 

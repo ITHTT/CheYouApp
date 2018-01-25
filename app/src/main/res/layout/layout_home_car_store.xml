@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingLeft="8dp"
-    android:paddingRight="8dp">
+    android:paddingRight="8dp"
+    android:background="@color/colorWhite">
     <View style="@style/HorizontalLineStyle"/>
     <com.hw.cy.app.view.widget.ResizeImageView
         android:id="@+id/iv_store_car_thumb"
