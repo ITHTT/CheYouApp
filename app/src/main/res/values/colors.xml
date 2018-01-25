@@ -9,5 +9,6 @@
     <color name="colorAppTheme">#3f469b</color>
     <color name="colorGray">#999999</color>
     <color name="colorBaseText">#333333</color>
+    <color name="colorGrayc">#cccccc</color>
     <color name="colorAmountDivider">#ffd2d2d2</color>
 </resources>
