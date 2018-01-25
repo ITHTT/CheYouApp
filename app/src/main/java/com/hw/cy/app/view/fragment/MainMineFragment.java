@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.blankj.utilcode.util.BarUtils;
 import com.htt.framelibrary.log.KLog;
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseFragment;
@@ -48,6 +49,8 @@ public class MainMineFragment extends BaseFragment{
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
             StatusBarUtil.statusBarLightMode(this.getActivity(),false);
             layoutUserProfile.setPadding(0,StatusBarUtil.getStatusBarHeight(getActivity()),0,0);
+
+            BarUtils.setStatusBarAlpha(getActivity(),0);
         }
     }
 

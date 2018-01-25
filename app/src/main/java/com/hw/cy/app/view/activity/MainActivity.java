@@ -67,6 +67,11 @@ public class MainActivity extends BaseActivity{
     }
 
     @Override
+    protected boolean isLightMode() {
+        return false;
+    }
+
+    @Override
     protected boolean isSwipeBack() {
         return false;
     }
@@ -87,6 +92,7 @@ public class MainActivity extends BaseActivity{
             tabCarStore.setSelected(false);
             tabCarNews.setSelected(false);
             tabMine.setSelected(false);
+
         }else if(id==R.id.menu_tab_buycar){
             tabHome.setSelected(false);
             tabBuyCar.setSelected(true);

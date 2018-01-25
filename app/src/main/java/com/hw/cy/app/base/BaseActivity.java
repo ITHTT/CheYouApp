@@ -23,6 +23,8 @@ import com.hw.cy.app.util.StatusBarUtil;
 import com.hw.cy.app.view.widget.TitleBar;
 import com.hwangjr.rxbus.RxBus;
 
+import java.lang.reflect.Field;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
@@ -47,6 +49,17 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
         setTranslucentBar();
         super.onCreate(savedInstanceState);
         if(getContentLayoutId()>0){
+/**
+ * 解决7.0以上系统 状态栏透明蒙灰问题，切勿删除
+ */
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                try {
+                    Class decorViewClazz = Class.forName("com.android.internal.policy.DecorView");
+                    Field field = decorViewClazz.getDeclaredField("mSemiTransparentStatusBarColor");
+                    field.setAccessible(true);
+                    field.setInt(getWindow().getDecorView(), Color.TRANSPARENT);  //改为透明
+                } catch (Exception e) {}
+            }
             setContentView(getContentLayoutId());
             unbinder= ButterKnife.bind(this);
             initTitleBar();
@@ -88,12 +101,11 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
               titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(this));
                //BarUtils.addMarginTopEqualStatusBarHeight(titleBar);// 其实这个只需要调用一次即可
             }
-            if (LightMode()) {
+            if (isLightMode()) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     //  titleBar.setStatusBarHeight(StatusBarUtil.getStatusBarHeight(this));
                     StatusBarUtil.statusBarLightMode(this, true);
                 } else {
-
                     StatusBarUtil.statusBarLightMode(this, false);
                 }
             }
@@ -106,7 +118,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
         return true;
     }
 
-    protected boolean LightMode() {
+    protected boolean isLightMode() {
 
         return true;
     }
