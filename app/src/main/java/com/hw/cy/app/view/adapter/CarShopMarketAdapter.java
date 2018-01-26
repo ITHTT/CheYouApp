@@ -79,7 +79,7 @@ public class CarShopMarketAdapter extends RecyclerView.Adapter<CarShopMarketAdap
                     selectedItem = position;
                     notifyDataSetChanged();
                 }
-                ActivityUtils.startActivity(CarGoodsActivity.class);
+
             }
         });
     }

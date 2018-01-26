@@ -12,7 +12,7 @@
     <com.allen.library.SuperTextView
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        stv:sLeftTopTextString="迪丽热巴"
+        stv:sLeftTopTextString="头像"
         stv:sLeftViewGravity="left_center"
         stv:sRightIconRes="@mipmap/ic_arrow_next"
         stv:sRightTvDrawableRight="@mipmap/ic_home_menu05" />
@@ -116,7 +116,6 @@
             <com.allen.library.SuperTextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                stv:sCenterTvDrawableLeft="@mipmap/ic_login_code"
                 stv:sLeftTextString="宝马X5M  (默认)"
                 stv:sRightTextBackground="@android:drawable/ic_delete"
                 stv:sRightTextColor="@color/colorPrimary"

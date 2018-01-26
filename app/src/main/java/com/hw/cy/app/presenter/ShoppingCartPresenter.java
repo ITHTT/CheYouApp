@@ -23,10 +23,10 @@ public class ShoppingCartPresenter extends BasePresenter<ShoppingCartActivity> {
             item.setType(ShoppingCartAdapter.TYPE_SHOPPING_CART_STORE);
             item.setStoreName("陕西安泰捷豹4S店");
             list.add(item);
-            for (int j = 0; j < 2; j++) {
+            for (int j = 0; j < 5; j++) {
                 item = new ShoppingCartEntity();
                 item.setType(ShoppingCartAdapter.TYPE_SHOPPING_CART_GOOD);
-                if (j == 0) {
+                if (j % 2 == 0) {
                     item.setPrices(129f);
                     item.setGoodName("壳牌（Shell） 黄喜力矿物质机油 Helix HX510W -40 SN级 4L");
                     item.setGoodIcon("https://img12.360buyimg.com/n2/jfs/t14227/138/1904944804/102214/b8ba90fa/5a67f608N759e2569.jpg");

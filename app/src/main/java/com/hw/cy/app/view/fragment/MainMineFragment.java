@@ -101,20 +101,12 @@ public class MainMineFragment extends BaseFragment {
         unbinder.unbind();
     }
 
-    @OnClick(R.id.iv_setting)
-    public void onViewClicked() {
-        ActivityUtils.startActivity(ProfileActivity.class);
-    }
-
     @OnClick({R.id.iv_setting, R.id.ly_store_collect, R.id.ly_shop_collect})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-
             case R.id.iv_setting:
                 ActivityUtils.startActivity(ProfileActivity.class);
                 break;
-
-
             case R.id.ly_store_collect:
                 ActivityUtils.startActivity(CollectActivity.class);
                 break;
