@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseActivity;
+import com.hw.cy.app.presenter.CollectPresenter;
 import com.hw.cy.app.presenter.ShoppingCartPresenter;
 import com.hw.cy.app.view.adapter.CollectAdapter;
 import com.hw.cy.app.view.adapter.ShoppingCartAdapter;
@@ -22,7 +23,7 @@ import butterknife.BindView;
  */
 
 
-public class CollectActivity extends BaseActivity<ShoppingCartPresenter> {
+public class CollectActivity extends BaseActivity<CollectPresenter> {
     @BindView(R.id.refresh_recyclerview)
     RefreshRecyclerView refreshRecyclerView;
 
@@ -51,8 +52,8 @@ public class CollectActivity extends BaseActivity<ShoppingCartPresenter> {
     }
 
     @Override
-    public ShoppingCartPresenter newPersenter() {
-        return new ShoppingCartPresenter();
+    public CollectPresenter newPersenter() {
+        return new CollectPresenter();
     }
 
     private void initRefreshRecyclerView() {

@@ -20,6 +20,7 @@ import com.htt.framelibrary.log.KLog;
 import com.hw.cy.app.R;
 import com.hw.cy.app.base.BaseFragment;
 import com.hw.cy.app.util.StatusBarUtil;
+import com.hw.cy.app.view.activity.CarGoodsActivity;
 import com.hw.cy.app.view.activity.CarShopMarketActivity;
 import com.hw.cy.app.view.activity.CarWashStoreActivity;
 import com.hw.cy.app.view.adapter.MainHomeAdapter;
@@ -220,7 +221,8 @@ public class MainHomeFragment extends BaseFragment implements View.OnClickListen
                 break;
             /***汽车超市*/
             case R.id.layout_menu_07:
-                ActivityUtils.startActivity(CarShopMarketActivity.class);
+                ActivityUtils.startActivity(CarGoodsActivity.class);
+
                 break;
 
             default:

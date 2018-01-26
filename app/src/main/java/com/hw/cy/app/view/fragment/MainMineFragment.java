@@ -100,6 +100,8 @@ public class MainMineFragment extends BaseFragment {
             case R.id.iv_setting:
                 ActivityUtils.startActivity(ProfileActivity.class);
                 break;
+
+
             case R.id.ly_store_collect:
                 ActivityUtils.startActivity(CollectActivity.class);
                 break;
