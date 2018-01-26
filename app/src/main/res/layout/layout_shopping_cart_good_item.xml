@@ -49,14 +49,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textColor="#F45454"
                         android:text="￥"/>
                     <TextView
                         android:id="@+id/tv_good_moneys"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="14sp"
                         android:textColor="#F45454"
                         android:text="530.00"/>
                 </LinearLayout>
@@ -71,5 +71,7 @@
             </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>
-    <View style="@style/HorizontalLineStyle"/>
+    <View style="@style/HorizontalLineStyle"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
 </LinearLayout>

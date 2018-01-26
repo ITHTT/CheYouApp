@@ -19,6 +19,7 @@ import com.hw.cy.app.util.StatusBarUtil;
 import com.hw.cy.app.view.activity.CollectActivity;
 import com.hw.cy.app.view.activity.ProfileActivity;
 import com.hw.cy.app.view.activity.ShoppingCartActivity;
+import com.hw.cy.app.view.activity.UserOrderActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -87,20 +88,6 @@ public class MainMineFragment extends BaseFragment {
         startActivity(intent);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
-
     @OnClick(R.id.iv_setting)
     public void onViewClicked() {
         ActivityUtils.startActivity(ProfileActivity.class);
@@ -113,8 +100,6 @@ public class MainMineFragment extends BaseFragment {
             case R.id.iv_setting:
                 ActivityUtils.startActivity(ProfileActivity.class);
                 break;
-
-
             case R.id.ly_store_collect:
                 ActivityUtils.startActivity(CollectActivity.class);
                 break;
@@ -122,5 +107,14 @@ public class MainMineFragment extends BaseFragment {
                 ActivityUtils.startActivity(CollectActivity.class);
                 break;
         }
+    }
+
+    @OnClick({R.id.layout_order_all,
+            R.id.layout_order_obligation,
+            R.id.layout_order_received,
+            R.id.layout_order_evaluate,
+            R.id.layout_order_return})
+    public void onClickUserOrder(View view){
+        ActivityUtils.startActivity(UserOrderActivity.class);
     }
 }

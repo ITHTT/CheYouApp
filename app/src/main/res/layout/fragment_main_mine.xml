@@ -253,7 +253,7 @@
                     android:textSize="16sp" />
 
                 <LinearLayout
-                    android:id="@+id/layout_next"
+                    android:id="@+id/layout_order_all"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
@@ -282,6 +282,7 @@
                 android:paddingTop="15dp">
 
                 <LinearLayout
+                    android:id="@+id/layout_order_obligation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -303,6 +304,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_order_received"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -323,6 +325,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_order_evaluate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -343,6 +346,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_order_return"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
